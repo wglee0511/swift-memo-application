@@ -11,6 +11,7 @@
 		E48756D82AF4F310003FBFF8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48756D72AF4F310003FBFF8 /* ContentView.swift */; };
 		E48756DA2AF4F311003FBFF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48756D92AF4F311003FBFF8 /* Assets.xcassets */; };
 		E48756DD2AF4F311003FBFF8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48756DC2AF4F311003FBFF8 /* Preview Assets.xcassets */; };
+		E48756E72AF4F40B003FBFF8 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48756E62AF4F40B003FBFF8 /* Memo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		E48756D72AF4F310003FBFF8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E48756D92AF4F311003FBFF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48756DC2AF4F311003FBFF8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E48756E62AF4F40B003FBFF8 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,9 @@
 		E48756D42AF4F310003FBFF8 /* SwiftMemoApplication */ = {
 			isa = PBXGroup;
 			children = (
+				E48756E52AF4F330003FBFF8 /* Controller */,
+				E48756E42AF4F32C003FBFF8 /* View */,
+				E48756E32AF4F322003FBFF8 /* Model */,
 				E48756D52AF4F310003FBFF8 /* SwiftMemoApplicationApp.swift */,
 				E48756D72AF4F310003FBFF8 /* ContentView.swift */,
 				E48756D92AF4F311003FBFF8 /* Assets.xcassets */,
@@ -65,6 +70,28 @@
 				E48756DC2AF4F311003FBFF8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E48756E32AF4F322003FBFF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E48756E62AF4F40B003FBFF8 /* Memo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E48756E42AF4F32C003FBFF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E48756E52AF4F330003FBFF8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48756E72AF4F40B003FBFF8 /* Memo.swift in Sources */,
 				E48756D82AF4F310003FBFF8 /* ContentView.swift in Sources */,
 				E48756D62AF4F310003FBFF8 /* SwiftMemoApplicationApp.swift in Sources */,
 			);
