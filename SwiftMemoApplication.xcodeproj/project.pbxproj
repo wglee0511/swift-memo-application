@@ -12,6 +12,7 @@
 		E48756DA2AF4F311003FBFF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48756D92AF4F311003FBFF8 /* Assets.xcassets */; };
 		E48756DD2AF4F311003FBFF8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48756DC2AF4F311003FBFF8 /* Preview Assets.xcassets */; };
 		E48756E72AF4F40B003FBFF8 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48756E62AF4F40B003FBFF8 /* Memo.swift */; };
+		E48756EA2AF5B3B0003FBFF8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48756E92AF5B3B0003FBFF8 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		E48756D92AF4F311003FBFF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48756DC2AF4F311003FBFF8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E48756E62AF4F40B003FBFF8 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		E48756E92AF5B3B0003FBFF8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		E48756D42AF4F310003FBFF8 /* SwiftMemoApplication */ = {
 			isa = PBXGroup;
 			children = (
+				E48756E82AF5B39D003FBFF8 /* Shared */,
 				E48756E52AF4F330003FBFF8 /* Controller */,
 				E48756E42AF4F32C003FBFF8 /* View */,
 				E48756E32AF4F322003FBFF8 /* Model */,
@@ -92,6 +95,14 @@
 			children = (
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E48756E82AF5B39D003FBFF8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E48756E92AF5B3B0003FBFF8 /* File.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48756E72AF4F40B003FBFF8 /* Memo.swift in Sources */,
+				E48756EA2AF5B3B0003FBFF8 /* File.swift in Sources */,
 				E48756D82AF4F310003FBFF8 /* ContentView.swift in Sources */,
 				E48756D62AF4F310003FBFF8 /* SwiftMemoApplicationApp.swift in Sources */,
 			);

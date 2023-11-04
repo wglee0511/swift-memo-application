@@ -14,10 +14,56 @@ struct Memo: Identifiable {
     var insertedDate: Date
 }
 
-//class MemoList: ObservableObject {
-//    @Published var memoList: [Memo] = [Memo(content: "Hello World", insertedDate: Date() )]
-//    
-//    func addMemoList (text : String) {
-//        
-//    }
-//}
+typealias MemoListType  = Array<Memo>
+
+class Memolist: ObservableObject {
+    private let userDefault = UserDefaults.standard
+    @Published var memoList: MemoListType = []
+    @Published var isEmptyMemoList: Bool = false
+    
+    init() {
+        let savedMemoList = userDefault.array(forKey: MEMO_LIST) as? MemoListType
+        
+        guard let checkedSavedMemoList = savedMemoList else {
+            self.memoList = []
+            self.isEmptyMemoList = true
+            return
+        }
+        
+        self.memoList = checkedSavedMemoList
+        self.isEmptyMemoList = checkedSavedMemoList.isEmpty
+    }
+    
+    func setUserDefault(memoList: MemoListType) {
+        userDefault.set(memoList, forKey: MEMO_LIST)
+    }
+    
+    func addMemo (memo: Memo) throws {
+        var copyMemoList = memoList
+        copyMemoList.insert(memo, at: 0)
+        
+        
+        self.memoList = copyMemoList
+        setUserDefault(memoList: copyMemoList)
+    }
+    
+    func deleteMemo(id: UUID) {
+        var copyMemoList = memoList.filter {
+            $0.id != id
+        }
+        
+        self.memoList = copyMemoList
+        setUserDefault(memoList: copyMemoList)
+    }
+    
+    func updateMemo(content: String, id: UUID) {
+        var copyMemoList = memoList.map {
+            if($0.id != id) {
+                return $0
+            } else {
+                return Memo(content: content, insertedDate: Date())
+            }
+        }
+    }
+    
+}
