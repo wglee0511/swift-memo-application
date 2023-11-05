@@ -38,32 +38,38 @@ class Memolist: ObservableObject {
         userDefault.set(memoList, forKey: MEMO_LIST)
     }
     
-    func addMemo (memo: Memo) throws {
+    func addMemo (memo: Memo) {
         var copyMemoList = memoList
         copyMemoList.insert(memo, at: 0)
         
         
         self.memoList = copyMemoList
+        self.isEmptyMemoList = copyMemoList.isEmpty
         setUserDefault(memoList: copyMemoList)
     }
     
     func deleteMemo(id: UUID) {
-        var copyMemoList = memoList.filter {
+        let copyMemoList = memoList.filter {
             $0.id != id
         }
         
         self.memoList = copyMemoList
+        self.isEmptyMemoList = copyMemoList.isEmpty
         setUserDefault(memoList: copyMemoList)
     }
     
     func updateMemo(content: String, id: UUID) {
-        var copyMemoList = memoList.map {
+        let copyMemoList = memoList.map {
             if($0.id != id) {
                 return $0
             } else {
                 return Memo(content: content, insertedDate: Date())
             }
         }
+        
+        self.memoList = copyMemoList
+        self.isEmptyMemoList = copyMemoList.isEmpty
+        setUserDefault(memoList: copyMemoList)
     }
     
 }

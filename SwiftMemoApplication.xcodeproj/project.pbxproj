@@ -60,7 +60,6 @@
 				E48756E42AF4F32C003FBFF8 /* View */,
 				E48756E32AF4F322003FBFF8 /* Model */,
 				E48756D52AF4F310003FBFF8 /* SwiftMemoApplicationApp.swift */,
-				E48756D72AF4F310003FBFF8 /* ContentView.swift */,
 				E48756D92AF4F311003FBFF8 /* Assets.xcassets */,
 				E48756DB2AF4F311003FBFF8 /* Preview Content */,
 			);
@@ -86,6 +85,7 @@
 		E48756E42AF4F32C003FBFF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E48756D72AF4F310003FBFF8 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
