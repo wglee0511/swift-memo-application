@@ -17,59 +17,31 @@ struct Memo: Identifiable {
 typealias MemoListType  = Array<Memo>
 
 class Memolist: ObservableObject {
-    private let userDefault = UserDefaults.standard
     @Published var memoList: MemoListType = []
     @Published var isEmptyMemoList: Bool = false
     
-    init() {
-        let savedMemoList = userDefault.array(forKey: MEMO_LIST) as? MemoListType
-        
-        guard let checkedSavedMemoList = savedMemoList else {
-            self.memoList = []
-            self.isEmptyMemoList = true
-            return
-        }
-        
-        self.memoList = checkedSavedMemoList
-        self.isEmptyMemoList = checkedSavedMemoList.isEmpty
+    func addMemo(memo: Memo) {
+        memoList.insert(memo, at: 0)
     }
     
-    func setUserDefault(memoList: MemoListType) {
-        userDefault.set(memoList, forKey: MEMO_LIST)
-    }
-    
-    func addMemo (memo: Memo) {
-        var copyMemoList = memoList
-        copyMemoList.insert(memo, at: 0)
-        
-        
-        self.memoList = copyMemoList
-        self.isEmptyMemoList = copyMemoList.isEmpty
-        setUserDefault(memoList: copyMemoList)
-    }
-    
-    func deleteMemo(id: UUID) {
-        let copyMemoList = memoList.filter {
-            $0.id != id
-        }
-        
-        self.memoList = copyMemoList
-        self.isEmptyMemoList = copyMemoList.isEmpty
-        setUserDefault(memoList: copyMemoList)
-    }
-    
-    func updateMemo(content: String, id: UUID) {
-        let copyMemoList = memoList.map {
-            if($0.id != id) {
-                return $0
+    func updateMemo(id: UUID, content: String) {
+        var updatedMemoList = memoList.map {
+            if $0.id == id {
+                var updatedMemo  = Memo(content: content, insertedDate: Date())
+                return updatedMemo
             } else {
-                return Memo(content: content, insertedDate: Date())
+                return $0
             }
         }
         
-        self.memoList = copyMemoList
-        self.isEmptyMemoList = copyMemoList.isEmpty
-        setUserDefault(memoList: copyMemoList)
+        memoList = updatedMemoList
     }
     
+    func deleteMemo(id: UUID) {
+        var filteredMemoList = memoList.filter {
+            $0.id != id
+        }
+        
+        memoList = filteredMemoList
+    }
 }
