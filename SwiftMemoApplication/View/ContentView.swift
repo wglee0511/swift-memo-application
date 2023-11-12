@@ -8,26 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var memoText: String = ""
-    
     @ObservedObject var memoList = Memolist()
-    
 
     var body: some View {
         NavigationView {
             VStack{
-                memoList.isEmptyMemoList == true ?
-                Text("Add Memo") :
-                Text("Memo")
+                MemoListView()
             }.navigationTitle("Memo List")
                 .toolbar {
-                    HStack{
-                        Button{
-                            print(memoList)
-                        } label: {
-                            Text("Edit")
-                        }
-                }
+                    NavigationLink("Edit") {
+                        MemoDetailView()
+                    }
             }
         }
     }
