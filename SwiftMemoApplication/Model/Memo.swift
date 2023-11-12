@@ -18,16 +18,17 @@ typealias MemoListType  = Array<Memo>
 
 class Memolist: ObservableObject {
     @Published var memoList: MemoListType = []
-    @Published var isEmptyMemoList: Bool = false
+    @Published var isEmptyMemoList: Bool = true
     
     func addMemo(memo: Memo) {
         memoList.insert(memo, at: 0)
+        isEmptyMemoList = memoList.isEmpty
     }
     
     func updateMemo(id: UUID, content: String) {
-        var updatedMemoList = memoList.map {
+        let updatedMemoList = memoList.map {
             if $0.id == id {
-                var updatedMemo  = Memo(content: content, insertedDate: Date())
+                let updatedMemo  = Memo(content: content, insertedDate: Date())
                 return updatedMemo
             } else {
                 return $0
@@ -35,13 +36,15 @@ class Memolist: ObservableObject {
         }
         
         memoList = updatedMemoList
+        isEmptyMemoList = memoList.isEmpty
     }
     
     func deleteMemo(id: UUID) {
-        var filteredMemoList = memoList.filter {
+        let filteredMemoList = memoList.filter {
             $0.id != id
         }
         
         memoList = filteredMemoList
+        isEmptyMemoList = memoList.isEmpty
     }
 }
